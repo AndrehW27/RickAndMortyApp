@@ -4,7 +4,7 @@ export default function Personagens() {
     return (
         <div>
             <p className="titulo">
-                Rick and Morty
+                Rick and Morty data
             </p>
         </div>
     );
