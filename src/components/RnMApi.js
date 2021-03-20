@@ -10,12 +10,17 @@ export default {
     getAllRnmData: async () => {
         return [
             {
-                slug: 'episodios',
-                items: await basicFetch('/episode')
+                slug: 'Personagens',
+                items: await basicFetch('/character')
             },
             {
-                slug: 'personagens',
-                items: await basicFetch('/character')
+                slug: 'Locais',
+                items: await basicFetch('/location')
+            }
+            ,
+            {
+                slug: 'Episódios',
+                items: await basicFetch('/episode')
             }
         ];
     },
