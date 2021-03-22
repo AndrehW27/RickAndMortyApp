@@ -28,8 +28,9 @@ function App() {
       console.log(allcharacter);
       console.log(allcharacter[0].name);
 
-      let random = Math.floor(Math.random() * allcharacter.length -1);
-      
+      let random = Math.floor(Math.random() * allcharacter.length - 1);
+      setRandomIdChar(random);
+
       setRickData(allcharacter[random]);
 
 
@@ -43,7 +44,7 @@ function App() {
       loadAllRnmData();
     }, 1000);
 
-    
+
   }, []);
 
   return (
@@ -51,29 +52,29 @@ function App() {
 
       <RickAndMorty />
 
-      <SaibaMais 
+      <SaibaMais
+        id={randomIdChar}
         imagem={rickData.image}
         nome={rickData.name}
         status={rickData.status}
         espécie={rickData.species}
-        tipo={rickData.type}
         genero={rickData.gender}
-        // origem={rickData.origin.name}
-        // localizacao={rickData.location.name}     
-        // origem={JSON.stringify(rickData.origin)}
-        // localizacao={JSON.stringify(rickData.location)} 
+      // origem={rickData.origin.name}
+      // localizacao={rickData.location.name}     
+      // origem={JSON.stringify(rickData.origin)}
+      // localizacao={JSON.stringify(rickData.location)} 
       />
 
       {allDataState.length <= 0 &&
         <div className="Gif">
           <img src="https://media.giphy.com/media/l378BzHA5FwWFXVSg/giphy.gif" alt="lotr gif" />
-          <p>Loading...</p>          
+          <p>Loading...</p>
         </div>
-      }      
+      }
 
       <div className="containerPersonagens">
         {allCharacter.map((item, key) => (
-          <Personagem key={key} nome={item.name} imagem={item.image} espécie={item.species} localização={item.origin.name} />
+          <Personagem key={key} id={item.id} nome={item.name} imagem={item.image} espécie={item.species} localização={item.origin.name} />
         ))}
       </div>
 

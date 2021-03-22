@@ -10,13 +10,15 @@
 } */
 
 .containerSabiaMais {
-    position: fixed;
-    top: 50%;
+    position: relative;
+    /* top: 50%;
     left: 50%;
-    transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%); */
+    left: 50%;
+    transform: translate(-50%);
     display: flex;
-    width: 80vw;
-    height: 80vh;
+    width: 50vw;
+    height: 50vh;
     z-index: 999;
     border: 2px solid grey;
     border-radius: 2rem;
@@ -49,8 +51,11 @@
     background-color: rgb(80, 80, 80);
     padding: 2rem;
     border-radius: 0 2rem 2rem 0;
-    font-size: 2rem;
+    font-size: 1.5rem;
     text-align: center;
+}
+.infosModal p{
+    margin: 0.25rem;
 }
 
 .containerSabiaMais a {

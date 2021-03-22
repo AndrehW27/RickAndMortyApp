@@ -1,6 +1,6 @@
 import '../styles/SaibaMais.css'
 
-export default function SaibaMais({ imagem, nome, status, espécie, tipo, genero, origem, localizacao}) {
+export default function SaibaMais({ id, imagem, nome, status, espécie, genero, origem, localizacao}) {
 
     // function closeModal(){
     //     // let modal = document.getElementById('modal');
@@ -14,7 +14,7 @@ export default function SaibaMais({ imagem, nome, status, espécie, tipo, genero
     // }
 
     return (
-        <div className="containerSaibaMaisOuter">
+       
             <div className="modal" className="containerSabiaMais">
                 <div className="imagemModalDiv">
                     <img className="imagemModal" src={imagem} alt="imagem nao aparece" />
@@ -31,11 +31,7 @@ export default function SaibaMais({ imagem, nome, status, espécie, tipo, genero
                     <p>
                         <span>Espécie:</span>
                         {espécie}
-                </p>
-                    <p>
-                        <span>Tipo:</span>
-                        {tipo}
-                    </p>
+                </p>             
                     <p>
                         <span>Gênero:</span>
                         {genero}
@@ -48,8 +44,12 @@ export default function SaibaMais({ imagem, nome, status, espécie, tipo, genero
                         <span>Localização:</span>
                         {localizacao}
                     </p>
+                    <p>
+                        <span>Id:</span>
+                        {id}
+                    </p>
                 </div>
             </div>
-        </div>
+      
     );
 }
