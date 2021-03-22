@@ -6,7 +6,7 @@ export default function Bottom() {
             <p>
                 Site feito com <span>S2</span>.
                 ®2021 Direitos reservados para
-                <a href="https://github.com/AndrehW27/" target="_blank" rel="noopener noreferrer">André Willian</a>.
+                <a href="https://github.com/AndrehW27/" target="_blank" rel="noopener noreferrer"> André Willian</a>.
             </p>
             <p>
                 Dados obtidos da api

@@ -6,6 +6,7 @@
   box-sizing: border-box;
   text-decoration: none;
   font-family: SchoolBell;
+  overflow-x: hidden;
   /* background-color: #222; */
   /* color: #fff; */
 
@@ -13,7 +14,6 @@
 
 body{
   background-color: #222 !important;
-  /* color: #fff !important; */
 }
 
 .containerPersonagens {
@@ -26,6 +26,7 @@ body{
   transform: translate(-50%);
   /* top: 50px; */
   width: 90vw;
+  overflow: hidden;
   max-width: 90vw;
   border-radius: 2rem;
   color: #fff;

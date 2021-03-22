@@ -4,6 +4,7 @@
     left: 50%;
     transform: translate(-50%);
     top: 30px;
+    background-color: rgb(42, 42, 42);
     
     font-size: 4rem;
     font-weight: bold;

@@ -1,5 +1,8 @@
 .ContainerBottom{
     display: flex;
+    position: relative;
+    width: 100vw;
+    bottom: 0;
     flex-direction: column;
     align-items: center;
     justify-content: center;

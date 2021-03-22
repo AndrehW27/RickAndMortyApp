@@ -6,11 +6,14 @@ import Personagem from './components/Personagem';
 import { useEffect, useState } from 'react';
 import RnMApi from './components/RnMApi';
 import Bottom from './components/Bottom';
+import SaibaMais from './components/SaibaMais';
 
 function App() {
 
   const [allDataState, setAlldataState] = useState([]);
   const [allCharacter, setAllCharacter] = useState([]);
+  const [randomIdChar, setRandomIdChar] = useState([]);
+  const [rickData, setRickData] = useState([]);
 
   useEffect(() => {
     // PEGANDO TODOS OS DADOS DA API
@@ -20,9 +23,19 @@ function App() {
       setAlldataState(arrayAllData);
 
       // PEGANDO TODOS OS PERSONAGENS 
-      let allcharacter = arrayAllData[0].items.results;
+      let allcharacter = await arrayAllData[0].items.results;
       setAllCharacter(allcharacter);
       console.log(allcharacter);
+      console.log(allcharacter[0].name);
+
+      let random = Math.floor(Math.random() * allcharacter.length -1);
+      
+      setRickData(allcharacter[random]);
+
+
+      // let rickData = allcharacter[0].items.results[0];  
+      // console.log(rickData);
+      // setRickData(rickData);
 
     }
 
@@ -36,14 +49,27 @@ function App() {
   return (
     <div className="App">
 
+      <RickAndMorty />
+
+      <SaibaMais 
+        imagem={rickData.image}
+        nome={rickData.name}
+        status={rickData.status}
+        espécie={rickData.species}
+        tipo={rickData.type}
+        genero={rickData.gender}
+        // origem={rickData.origin.name}
+        // localizacao={rickData.location.name}     
+        // origem={JSON.stringify(rickData.origin)}
+        // localizacao={JSON.stringify(rickData.location)} 
+      />
+
       {allDataState.length <= 0 &&
         <div className="Gif">
           <img src="https://media.giphy.com/media/l378BzHA5FwWFXVSg/giphy.gif" alt="lotr gif" />
           <p>Loading...</p>          
         </div>
-      }
-
-      <RickAndMorty />
+      }      
 
       <div className="containerPersonagens">
         {allCharacter.map((item, key) => (
