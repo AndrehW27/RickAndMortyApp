@@ -1,54 +1,80 @@
-import { useState } from 'react';
+
 import '../styles/Personagem.css';
+import { Collapse, Button, CardBody, Card } from 'reactstrap';
+import { useState } from 'react';
 
-export default function Personagem({ id, nome, imagem, espécie, localização }) {
 
-    // function openModal() {
-    //     // let modal = document.getElementById('modal');
-    //     let modal = document.querySelector("modal");
-    //     let botaoSaiba = document.querySelector("botaoSaiba");
-    //     botaoSaiba.addEventListener("click", () => {
-    //         modal.classList.toggle("show");
-    //         console.log("show");
-    //     })
-    // }
+export default function Personagem({ 
+    id, 
+    status, 
+    nome, 
+    imagem, 
+    genero, 
+    espécie, 
+    origem, 
+    localizacao,
+    numEpisodes 
+}) {
 
-    // const [id2,setId2] = useState();
-
-    function showID(){
-        console.log({id});
-        // setId2({id})
-    }
+    const [isOpen, setIsOpen] = useState(false);
+    const toggle = () => setIsOpen(!isOpen);
 
     return (
 
         <div className="caixaPersonagem">
 
-          {/* {id2} */}
-
-            <img className="imagem" src={imagem} alt="imagem nao aparece" />
-
-            <div className="saibaMaisOuter">             
-                <a onClick={showID} href="\"  rel="noopener noreferrer">
-                    <p className="saibaMais">Saiba Mais</p>
-                </a>
-            </div>
-
             <div className="infos">
-                <p>
-                    {/* <span>Nome:</span> */}
+                <p>              
                     {nome}
                 </p>
-                {/* <p>
-                    <span>Espécie:</span>
-                    {espécie}
+            </div>
 
-                </p>
-                <p>
-                    <span>Localização:</span>
-                    {localização}
+            <img className="imagem" src={imagem} alt="imagem nao aparece" />     
 
-                </p> */}
+            <div className="divCollapse">
+                <div style={{ marginBottom: '1rem'}}>
+                    <Button className="buttonCollapse text-center w-100" color="info" onClick={toggle}
+                        style={{ fontSize: '1.5rem', 
+                                marginBottom: '1rem', 
+                                borderRadius: '0 0 1rem 1rem'                              
+                                }}>
+                        Ver +</Button>
+                    <Collapse className=" w-100" isOpen={isOpen}>
+                        <Card style={{ borderRadius: '1rem'}}>
+                            <CardBody  >
+                                <p className="StatusOuter">
+                                    <span>Status:</span>
+                                    {status === "Alive" ?
+                                        <div className="alive"></div>
+                                        :
+                                        <div className="dead"></div>
+                                    }
+                                    {status}
+                                </p>
+                                <p>
+                                    <span>Espécie:</span>
+                                    {espécie}
+                                </p>
+                                <p>
+                                    <span>Gênero:</span>
+                                    {genero}
+                                </p>
+                                <p>
+                                    <span>Nº episódios:</span>
+                                    {numEpisodes}
+                                </p>
+                                <p>
+                                    <span>Origem:</span>
+                                    {origem}
+                                </p>
+                                <p>
+                                    <span>Localização:</span>
+                                    {localizacao}
+                                </p>  
+                            </CardBody>
+                        </Card>
+                    </Collapse>
+                </div>
             </div>
 
         </div>

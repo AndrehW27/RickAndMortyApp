@@ -1,6 +1,10 @@
+// import { useEffect, useState } from 'react';
 import '../styles/SaibaMais.css'
 
-export default function SaibaMais({ id, imagem, nome, status, espécie, genero, origem, localizacao}) {
+       
+export default function SaibaMais({ numLocais, numEpisodes, numChar, idChar, imagem, nome, status, espécie, genero, origem, localizacao}) {
+
+
 
     // function closeModal(){
     //     // let modal = document.getElementById('modal');
@@ -20,34 +24,24 @@ export default function SaibaMais({ id, imagem, nome, status, espécie, genero, 
                     <img className="imagemModal" src={imagem} alt="imagem nao aparece" />
                 </div>
                 <div className="infosModal">
+                    <h3>Inforações do site </h3>
                     <p>
-                        <span>Nome:</span>
-                        {nome}
+                        <span>Número de Personagens:</span>
+                        {numChar}
                     </p>
                     <p>
-                        <span>Status:</span>
-                        {status}
+                        <span>Número de Temporadas:</span>
+                        4
                     </p>
                     <p>
-                        <span>Espécie:</span>
-                        {espécie}
+                        <span>Número de Episódios:</span>
+                        {numEpisodes}
+                    </p>
+                    <p>
+                        <span>Número de Locais:</span>
+                        {numLocais}
                 </p>             
-                    <p>
-                        <span>Gênero:</span>
-                        {genero}
-                    </p>
-                    <p>
-                        <span>Origem:</span>
-                        {origem}
-                    </p>
-                    <p>
-                        <span>Localização:</span>
-                        {localizacao}
-                    </p>
-                    <p>
-                        <span>Id:</span>
-                        {id}
-                    </p>
+
                 </div>
             </div>
       
