@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import '../styles/CollapseEpisodes.css';
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 
-export default function CollapseEpisodes({id, nome, episodio, date}) {
+export default function CollapseEpisodes2({id, nome, episodio, date}) {
 
     const [isOpen, setIsOpen] = useState(false);
 

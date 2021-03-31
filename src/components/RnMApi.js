@@ -24,4 +24,23 @@ export default {
             }
         ];
     },
+
+    getAllEpisodes: async () =>{
+        return[
+            {
+                slug: 'Página 1',
+                items: await basicFetch('/episode')
+            },
+            {
+                slug: 'Página 2',
+                items: await basicFetch('/episode?page=2')
+            }
+            ,
+            {
+                slug: 'Página 3',
+                items: await basicFetch('/episode?page=3')
+            }
+
+        ]
+    }
 }
