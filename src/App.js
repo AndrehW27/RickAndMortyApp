@@ -7,11 +7,11 @@ import { useEffect, useState } from 'react';
 import RnMApi from './components/RnMApi';
 import Bottom from './components/Bottom';
 import SaibaMais from './components/SaibaMais';
-import CollapseEpisodes from './components/CollapseEpisodes';
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 import CheckStatus from './components/CheckStatus';
 import Temporadas from './components/Temporadas';
-import CollapseEpisodes2 from './components/CollapseEpisodes2';
+import Temporada1 from './components/Temporada1';
+
 
 
 export default function App() {
@@ -26,6 +26,7 @@ export default function App() {
   const [season2, setSeason2] = useState([]);
   const [season3, setSeason3] = useState([]);
   const [season4, setSeason4] = useState([]);
+  const [allSeasons, setAllSeasons] = useState([]);
 
   useEffect(() => {
     // PEGANDO TODOS OS DADOS DA API
@@ -36,6 +37,7 @@ export default function App() {
       // PEGANDO TODOS OS PERSONAGENS 
       let allcharacter = await arrayAllData[0].items.results;
       setAllCharacter(allcharacter);
+      console.log(allcharacter);
 
       let random = Math.floor(Math.random() * allcharacter.length - 1);
       setCharData(allcharacter[random]);
@@ -46,22 +48,28 @@ export default function App() {
 
       let combinedEpisodesArrays = [...allEpisodes[0].items.results, ...allEpisodes[1].items.results, ...allEpisodes[2].items.results]
       console.log(combinedEpisodesArrays);
+      setEpisodesData(combinedEpisodesArrays);
 
-      let season1 = combinedEpisodesArrays.filter((el) => el.episode.startsWith("S01"));
-      setSeason1(season1);
-      console.log(season1);
+      let season1Arr = combinedEpisodesArrays.filter((el) => el.episode.startsWith("S01"));
+      setSeason1(season1Arr);
+      // console.log(season1Arr);
 
-      let season2 = combinedEpisodesArrays.filter((el) => el.episode.startsWith("S02"));
-      setSeason2(season2);
-      console.log(season2);
+      let season2Arr = combinedEpisodesArrays.filter((el) => el.episode.startsWith("S02"));
+      setSeason2(season2Arr);
+      // console.log(season2Arr);
 
-      let season3 = combinedEpisodesArrays.filter((el) => el.episode.startsWith("S03"));
-      setSeason3(season3);
-      console.log(season3);
+      let season3Arr = combinedEpisodesArrays.filter((el) => el.episode.startsWith("S03"));
+      setSeason3(season3Arr);
+      // console.log(season3Arr);
 
-      let season4 = combinedEpisodesArrays.filter((el) => el.episode.startsWith("S04"));
-      setSeason4(season4);
-      console.log(season4);
+      let season4Arr = combinedEpisodesArrays.filter((el) => el.episode.startsWith("S04"));
+      setSeason4(season4Arr);
+      // console.log(season4Arr);
+
+      let allSeasonsArray = [{ ...season1Arr }, { ...season2Arr }, { ...season3Arr }, { ...season4Arr }]
+      console.log(allSeasonsArray);
+      setAllSeasons(allSeasonsArray);
+      // console.log(allSeasons);
     }
 
     setTimeout(() => {
@@ -70,8 +78,6 @@ export default function App() {
 
 
   }, []);
-
-  // let season1 = episodesData.filter((temporada) => temporada.startsWith("N"));
 
   return (
     <div className="App">
@@ -112,76 +118,67 @@ export default function App() {
 
       {/* <PaginacaoTeste /> */}
 
-      {/* <div style={{ marginBottom: '0.5rem' }}>
-        <Button className="text-center w-100" color="info" onClick={toggle} >Seasons teste </Button>
-        <Collapse className=" w-100" isOpen={isOpen}>
-          <Card>
-            <CardBody > */}
-              {/* SEASON 1     */}
-              {/* <div style={{ marginTop: '1rem' }}>
-                <Button className="text-center w-25" color="info" onClick={toggle} style={{ marginLeft: '6rem' }}>Season 1</Button>
-                <Collapse className=" w-25" style={{ marginTop: '1rem', marginLeft: '6rem' }} isOpen={isOpen}>
-                  <Card>
-                    <CardBody >
-                      {season1.map((item, key) => (
-                        <CollapseEpisodes key={key}
-                          id={item.id}
-                          nome={item.name}
-                          episodio={item.episode}
-                          date={item.air_date}
-                        />
-                      ))}
-                    </CardBody>
-                  </Card>
-                </Collapse>
-              </div>
-            </CardBody>   
-          </Card>
-        </Collapse>
-      </div> */}
+      <div >
 
+        <div style={{ marginLeft: '6rem'}}>
+          <Button className="text-center w-25" color="info" onClick={toggle}>
+            <p style={{ fontSize: '2rem' }}>Temporadas </p>
+          </Button>
+          <Collapse className="w-100 " isOpen={isOpen}>
+            <Card className="d-flex flex-row w-75 p-3">
+              <CardBody className="w-25 cardBody">
+                <div >
+                  <h4> <span>Temporada 1</span> </h4>
+                  {season1.map((item, key) => (
+                    <Temporada1 key={key}
+                      episodio={item.episode}
+                      nome={item.name}
+                      date={item.air_date}
+                    />
+                  ))}
+                </div>
+              </CardBody>
+              <CardBody className="w-25 cardBody">
+                <div >
+                  <h4><span>Temporada 2</span></h4>
+                  {season2.map((item, key) => (
+                    <Temporada1 key={key}
+                      episodio={item.episode}
+                      nome={item.name}
+                      date={item.air_date}
+                    />
+                  ))}
+                </div>
+              </CardBody>
+              <CardBody className="w-25 cardBody">
+                <div >
+                  <h4><span>Temporada 3</span></h4>
+                  {season3.map((item, key) => (
+                    <Temporada1 key={key}
+                      episodio={item.episode}
+                      nome={item.name}
+                      date={item.air_date}
+                    />
+                  ))}
+                </div>
+              </CardBody>
+              <CardBody className="w-25 cardBody">
+                <div >
+                  <h4><span>Temporada 4</span></h4>
+                  {season4.map((item, key) => (
+                    <Temporada1 key={key}
+                      episodio={item.episode}
+                      nome={item.name}
+                      date={item.air_date}
+                    />
+                  ))}
+                </div>
+              </CardBody>
+            </Card>
+          </Collapse>
+        </div>
 
-
-      {/* SEASON 1     */}
-      <div style={{ marginTop: '1rem' }}>
-        <Button className="text-center w-25" color="info" onClick={toggle} style={{ marginLeft: '6rem' }}>Season 1</Button>
-        <Collapse className=" w-25" style={{ marginTop: '1rem', marginLeft: '6rem' }} isOpen={isOpen}>
-          <Card>
-            <CardBody >
-              {season1.map((item, key) => (
-                <CollapseEpisodes key={key}
-                  id={item.id}
-                  nome={item.name}
-                  episodio={item.episode}
-                  date={item.air_date}
-                />
-              ))}
-            </CardBody>
-          </Card>
-        </Collapse>
       </div>
-
-      {/* SEASON 2     */}
-      <div style={{ marginTop: '1rem' }}>
-        <Button className="text-center w-25" color="info" onClick={toggle} style={{ marginLeft: '6rem' }}>Season 2</Button>
-        <Collapse className=" w-25" style={{ marginTop: '1rem', marginLeft: '6rem' }} isOpen={isOpen}>
-          <Card>
-            <CardBody >
-              {season2.map((item, key) => (
-                <CollapseEpisodes2 key={key}
-                  id={item.id}
-                  nome={item.name}
-                  episodio={item.episode}
-                  date={item.air_date}
-                />
-              ))}
-            </CardBody>
-          </Card>
-        </Collapse>
-      </div>
-
-
-
 
       <Bottom />
 
@@ -194,9 +191,4 @@ export default function App() {
 
 
 
-      // let season = []
-      // for (let index = 0; index < combinedEpisodesArrays.length; index++) {
-      //   season.push(combinedEpisodesArrays[index]);   
-      //   setSeasons(season);        
-      // }
-      // console.log(season);
+

@@ -1,8 +1,8 @@
 import React, { useState } from 'react';
-import '../styles/Temporadas.css';
+import '../styles/Temporada1.css';
 import { Collapse, Button, CardBody, Card } from 'reactstrap';
 
-export default function Temporadas({ id, nome2, episodio, date }) {
+export default function Temporada1({ nome, date, episodio }) {
 
   const [isOpen, setIsOpen] = useState(false);
 
@@ -10,12 +10,12 @@ export default function Temporadas({ id, nome2, episodio, date }) {
 
   return (
     <div style={{ marginBottom: '0.5rem' }}>
-      <Button className="text-center w-100" color="info" onClick={toggle}> <p>Temporada: </p> </Button>
+      <Button className="text-center w-100" color="info" onClick={toggle}> <p>{episodio} </p> </Button>
       <Collapse className=" w-100" isOpen={isOpen}>
         <Card>
           <CardBody className="cardBody">
-            <p>Nome: </p>
-            <p>{nome2}</p>
+            <p> <span>Nome:</span>  {nome}</p>
+            <p> <span>Quando foi ao ar:</span>  {date}</p>
           </CardBody>
         </Card>
       </Collapse>

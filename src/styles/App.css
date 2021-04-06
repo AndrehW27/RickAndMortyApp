@@ -32,6 +32,23 @@ body{
   color: #fff;
 }
 
+.containerTemporadas {
+  display: grid;
+  grid-template-columns: auto auto auto auto ;
+  /* gap: 0.5rem; */
+  padding: 1rem;
+  position: relative;
+  left: 50%;
+  transform: translate(-50%);
+  /* top: 50px; */
+  width: 90vw;
+  overflow: hidden;
+  max-width: 90vw;
+  border-radius: 2rem;
+  color: #fff;
+  
+}
+
 .Gif{
   display: flex;
   flex-direction: column;
