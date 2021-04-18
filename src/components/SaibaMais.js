@@ -10,11 +10,11 @@ export default function SaibaMais({
     return (
 
         <div className="modal" className="containerSabiaMais">
-            <div className="imagemModalDiv">
-                <img className="imagemModal" src={imagem} alt="imagem nao aparece" />
-            </div>
+
             <div className="infosModal">
-                <h3>Informções do site </h3>
+                <div className="horizontal"></div>
+                <div className="vertical"></div>
+                <h3>Informações  </h3>
                 <p>
                     <span>Número de Personagens:</span>
                     {numChar}
@@ -31,6 +31,10 @@ export default function SaibaMais({
                     <span>Número de Locais:</span>
                     {numLocais}
                 </p>
+            </div>
+
+            <div className="imagemModalDiv">
+                <img className="imagemModal" src={imagem} alt="imagem nao aparece" />
             </div>
         </div>
 

@@ -22,6 +22,7 @@ body{
   /* gap: 0.5rem; */
   padding: 1rem;
   position: relative;
+  top: 60vh;
   left: 50%;
   transform: translate(-50%);
   /* top: 50px; */
@@ -50,6 +51,7 @@ body{
 }
 
 .Gif{
+  z-index: 2;
   display: flex;
   flex-direction: column;
   align-items: center;
@@ -74,3 +76,41 @@ body{
   color: #fff;
 }
 
+
+.Tab{
+  color: #fff;
+  overflow-x: hidden;
+  width: 80vw;
+  position: relative;
+  left:50%;
+  transform: translateX(-50%);
+}
+
+.click{
+  width: 30px;
+  height: 30px;
+  background-image: url('../icons/list.png');
+  background-position: center;
+  background-repeat: no-repeat;
+  background-size: contain;
+}
+
+.temporadas{
+  font-size: 2rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+}
+
+.locationCss{
+  color: #fff;
+}
+
+.temporadasContainer{
+  position: relative;
+  top: 60vh;
+}
+.locationsContainer{
+  position: relative;
+  top: 65vh;
+}

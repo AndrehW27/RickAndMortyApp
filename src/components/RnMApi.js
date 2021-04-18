@@ -16,12 +16,16 @@ export default {
             {
                 slug: 'Locais',
                 items: await basicFetch('/location')
-            }
-            ,
+            },
             {
                 slug: 'Episódios',
                 items: await basicFetch('/episode')
+            },
+            {
+                slug: 'Personagens pag2',
+                items: await basicFetch('/location/2')
             }
+            
         ];
     },
 
@@ -34,13 +38,11 @@ export default {
             {
                 slug: 'Página 2',
                 items: await basicFetch('/episode?page=2')
-            }
-            ,
+            },
             {
                 slug: 'Página 3',
                 items: await basicFetch('/episode?page=3')
             }
-
         ]
     }
 }
